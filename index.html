@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+
+            border: thin solid blue;
+            background-image: url(./image/06faf8efc2b54ad00245c6f819d24429.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: none;
+
+        }
+        .container{
+            text-align: center;
+            
+
+        }
+        table{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+        }
+        td{
+            margin-left: 20px;
+            border: thin solid red;
+            background-color: red;
+            color: white;
+            width: 20rem;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        Columns <input id="colNumber" type="number">
+        Rows <input id="rowNumber" type="number">
+        Evaluation 
+        <select name="" id="selectEval">
+            <option value="+">ADD</option>
+            <option value="-">SUBTRACT</option>
+            <option value="*">MULTIPLY</option>
+            <option id="divider" value="/">DIVIDE</option>
+        </select>
+        <button id="displayButton" onclick="displayAll()">Make me a Table</button>
+       
+     
+        <div style="margin-top: 50px;">
+            <table id="dispDiv"></table>
+        </div>
+    </div>
+ 
+     
+     
+ 
+        <script>
+            var tabRow = rowNumber.value;
+            var tabColumn = colNumber.value;
+ 
+            function displayAll(){
+                var sign = selectEval.value 
+                var table = "<table>"
+                    // tab += "<tr>"
+                    for ( i = 1; i<=Number(colNumber.value); i++){
+                        table += "<td>"
+                        for (var j=1; j<= Number(rowNumber.value);j++){
+                            var calcValue = (eval(i + sign + j))
+        
+                            if (calcValue % 1 !==0){
+                                var calcValue = Number(eval(i + sign + j)).toFixed(2)
+                            }
+                            table+= i + sign + j + "=" + calcValue +"<br>" + "<br>" ;
+                        }
+                            
+                    }
+                 
+                dispDiv.innerHTML = table
+            } 
+        </script>
+ 
+ 
+</body>
+</html>

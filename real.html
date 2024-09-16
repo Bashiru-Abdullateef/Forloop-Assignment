@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            border: thin solid blue;
+            background-image: url(./image/06faf8efc2b54ad00245c6f819d24429.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: none;
+        }
+        .container{
+            text-align: center;
+        }
+        table{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+        }
+        td{
+            /* margin-left: 20px; */
+            border: thin solid red;
+            background-color: red;
+            color: white;
+            width: 20rem;
+            text-align: center;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    
+    <div  style="text-align: center;">
+        <label for="">Columns</label>
+        <input type="number" placeholder="Enter any number" id="col_Number" >
+        <label for="">Row</label>
+        
+        <input type="number" placeholder="Enter any number" id="row_Number">
+        <label for="">Evaluation</label>
+        <select name="" id="selectEval">
+            <option value="">
+                Choose any operator of your choice
+            </option>
+            <option value="*">
+                Multiplication
+            </option>
+            <option value="+">
+                Addition
+            </option>
+            <option value="-">
+                Subtraction
+            </option>
+            <option value="/">
+                Division
+            </option>
+        </select>
+        <button id="displayButton" onclick="displayAll()">
+            Calculate
+        </button>
+   </div>
+
+    <div style=" display: flex; justify-content: center; align-items: center;">
+        <table id="dispDiv">
+
+        </table>
+    </div>
+
+
+    <script>
+        
+        
+        
+        
+        // var tabColumn = colNumber.value;
+        // var tabRow = rowNumber.value;
+        // function displayAll() {
+            
+        //     var sign = selectEval.value
+        //     var table = "<table>"
+        //         for ( i = 1; i<=Number(colNumber.value) ; i++) {
+        //             table += "<td>"
+        //                 for ( j = 1; j <= Number(rowNumber.value); j++) {
+        //                     var value = Number(eval(i + sign + j))
+        //                     if (value % 1 !==0 ) {
+        //                         var value2 =  Number(eval(i + sign + j)).toFixed(2)
+                                
+        //                     }
+                            
+                            
+        //                     table+= i + sign + j + "=" + value +"<br>" + "<br>" + "<br>" ; 
+        //                 }
+
+        //             dispDiv.innerHTML = table
+                    
+                    
+        //         }
+
+        // }
+        var First = col_Number.value;
+        var second = row_Number.value
+        function displayAll() {
+            var sign = selectEval.value;
+            var table = " <table> "
+                for (let i = 1; i <=Number(col_Number.value); i++) {
+                        
+                    table +='<td class = "tableData">'
+                    for (let j = 1; j <=Number(row_Number.value); j++) {
+                        var value = Number(eval(i + sign + j))
+                        if (value % 1 !== 0) {
+                        var value3 = Number(eval(i + sign + j)).toFixed(2)
+                            
+                        }
+                        table+= i + sign + j  + '=' + value  + "<br>"+ "<br>" + "<br>" ; 
+                        
+                    }
+                    dispDiv.innerHTML = table
+                }
+        }
+
+    </script>
+
+</body>
+</html>
